@@ -218,10 +218,10 @@ public class AmazonKinesisSinkTask extends SinkTask {
 		// same shard
 		if (usePartitionAsHashKey)
 			return kp.addUserRecord(streamName, partitionKey, Integer.toString(sinkRecord.kafkaPartition()),
-					DataUtility.parseValue(sinkRecord.valueSchema(), sinkRecord.value()));
+					DataUtility.parseValue(sinkRecord.valueSchema(), sinkRecord.value()+"\n"));
 		else
 			return kp.addUserRecord(streamName, partitionKey,
-					DataUtility.parseValue(sinkRecord.valueSchema(), sinkRecord.value()));
+					DataUtility.parseValue(sinkRecord.valueSchema(), sinkRecord.value()+"\n"));
 
 	}
 
