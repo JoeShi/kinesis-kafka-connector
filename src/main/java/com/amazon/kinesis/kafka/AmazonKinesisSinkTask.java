@@ -303,6 +303,8 @@ public class AmazonKinesisSinkTask extends SinkTask {
 	private KinesisProducer getKinesisProducer() {
 		KinesisProducerConfiguration config = new KinesisProducerConfiguration();
 		config.setRegion(regionName);
+		config.setCloudwatchEndpoint("monitoring.cn-northwest-1.amazonaws.com.cn");
+		config.setKinesisEndpoint("kinesis.cn-northwest-1.amazonaws.com.cn");
 		config.setCredentialsProvider(new DefaultAWSCredentialsProviderChain());
 		config.setMaxConnections(maxConnections);
 
